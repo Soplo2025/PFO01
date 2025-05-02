@@ -10,12 +10,7 @@
     Agrego un placeholder y modifico nombres de elementos.
 
     <form id="loginForm">
-      <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre"
-        required
-      /><br />
+      <input type="text" name="nombre" placeholder="Nombre" required /><br />
       <input
         type="password"
         name="contrasenia"
@@ -33,6 +28,18 @@
         e.preventDefault();
 
         const formData = new FormData(this);
+
+        /*
+        POST /login.php
+        Content-Type: multipart/form-data
+        nombre=juan
+        contrasenia=123456
+
+        Respuesta esperada: 
+        { 
+          "response": "ok"
+        }
+        */
 
         fetch("login.php", {
           method: "POST",
@@ -53,4 +60,3 @@
       });
   </script>
 </html>
-
